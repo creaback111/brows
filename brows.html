@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>_sofia._.brows — броу-студія</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2B1D16;
+    --cream:#F5ECE1;
+    --rose:#C98A7D;
+    --bronze:#A6784F;
+    --taupe:#8C7565;
+    --line:#E3D0C2;
+    --max:1080px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  .eyebrow{
+    font-family:'Manrope', sans-serif;
+    font-size:12px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    font-weight:700;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,236,225,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:18px; padding-bottom:18px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:0.01em;
+  }
+  .nav-links{display:flex; gap:28px; font-size:14px; font-weight:600;}
+  .nav-links a{padding:6px 2px; border-bottom:1px solid transparent; transition:border-color .2s ease, color .2s ease;}
+  .nav-links a:hover, .nav-links a:focus-visible{border-color:var(--bronze); color:var(--bronze);}
+  .nav-links a:focus-visible{outline:2px solid var(--bronze); outline-offset:4px; border-radius:2px;}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--cream);
+    padding:96px 0 84px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero .eyebrow{color:var(--rose);}
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(42px, 7vw, 84px);
+    line-height:1.02;
+    margin-top:14px;
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    max-width:520px;
+    margin-top:22px;
+    font-size:17px;
+    color:#D8C6B8;
+  }
+  .arch-underline{
+    display:block;
+    margin-top:28px;
+    width:min(420px, 70vw);
+    height:36px;
+  }
+  .arch-underline path{
+    fill:none;
+    stroke:var(--rose);
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-dasharray:520;
+    stroke-dashoffset:520;
+    animation:draw 1.4s ease forwards .3s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-cta{
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:38px;
+    background:var(--rose);
+    color:var(--ink);
+    font-weight:700;
+    font-size:15px;
+    padding:14px 26px;
+    border-radius:999px;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .hero-cta:hover, .hero-cta:focus-visible{ background:#dba396; transform:translateY(-2px); }
+  .hero-cta:focus-visible{ outline:2px solid var(--cream); outline-offset:3px; }
+
+  .hero-arcs{
+    position:absolute; right:-60px; top:-40px; opacity:0.5; z-index:1;
+    width:420px; height:420px;
+  }
+  @media (max-width:768px){ .hero-arcs{display:none;} }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:560px; margin-bottom:52px;}
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(30px, 4vw, 42px);
+    margin-top:12px;
+    color:var(--ink);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{border-bottom:1px solid var(--line);}
+  .about-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:start;
+  }
+  .about p{color:#4A3A2F; font-size:16px; max-width:46ch;}
+  .about p + p{margin-top:16px;}
+  .about-figure{
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:32px;
+    background:#FBF6EF;
+  }
+  .about-figure .stat{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:600;
+    font-size:40px; color:var(--bronze);
+  }
+  .about-figure .stat-label{
+    font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--taupe); margin-top:4px;
+  }
+  .about-figure .stat-row + .stat-row{ margin-top:26px; padding-top:26px; border-top:1px solid var(--line); }
+  @media (max-width:768px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--ink); color:var(--cream);}
+  .services .section-head .eyebrow{color:var(--rose);}
+  .services .section-head h2{color:var(--cream);}
+  .services .section-head p{color:#D8C6B8; margin-top:10px; font-size:15px;}
+
+  .price-list{ border-top:1px solid rgba(245,236,225,0.18); }
+  .price-row{
+    display:flex; align-items:center; gap:20px;
+    padding:24px 0;
+    border-bottom:1px solid rgba(245,236,225,0.18);
+  }
+  .price-arch{ flex:0 0 auto; width:34px; height:20px; }
+  .price-arch path{ fill:none; stroke:var(--rose); stroke-width:2.4; stroke-linecap:round; }
+  .price-name{ flex:1 1 auto; }
+  .price-name .name{ font-size:17px; font-weight:600; }
+  .price-name .note{ font-size:13px; color:#B79E8C; margin-top:3px; }
+  .price-amount{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:600;
+    font-size:24px; color:var(--rose); white-space:nowrap;
+  }
+  @media (max-width:560px){
+    .price-row{flex-wrap:wrap;}
+    .price-amount{ font-size:20px; }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-band{
+    background:linear-gradient(180deg, #FBF6EF, var(--cream));
+    text-align:center;
+    padding:96px 0;
+  }
+  .cta-band h2{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:clamp(30px, 5vw, 48px);
+  }
+  .cta-band p{ color:var(--taupe); margin-top:14px; font-size:16px; }
+  .cta-band .hero-cta{ background:var(--ink); color:var(--cream); margin-top:30px; }
+  .cta-band .hero-cta:hover, .cta-band .hero-cta:focus-visible{ background:#42302410; }
+  .cta-band .hero-cta:hover{ background:#3c2c22; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:36px 0;
+    border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:13px; color:var(--taupe);
+  }
+  footer a{font-weight:700; color:var(--ink);}
+  footer a:hover{ color:var(--bronze); }
+  @media (max-width:560px){ footer{flex-direction:column; gap:10px; text-align:center;} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">_sofia._.brows</div>
+    <div class="nav-links">
+      <a href="#about">Про майстра</a>
+      <a href="#services">Послуги</a>
+      <a href="#booking">Запис</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Броу-студія · Instagram @_sofia._.brows</p>
+    <h1 class="title">Брови,<br>які пасують<br>саме тобі</h1>
+    <svg class="arch-underline" viewBox="0 0 420 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 30 C 90 -10, 330 -10, 410 30"/>
+    </svg>
+    <p class="hero-sub">Корекція, фарбування та ламінування брів у затишній студії. Індивідуальна форма під тип обличчя — без шаблонів.</p>
+    <a class="hero-cta" href="https://instagram.com/_sofia._.brows" target="_blank" rel="noopener">
+      Записатись в Instagram →
+    </a>
+  </div>
+  <svg class="hero-arcs" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M20 260 C 120 160, 260 160, 360 240" stroke="#C98A7D" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M40 320 C 140 210, 290 210, 390 300" stroke="#A6784F" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M60 380 C 160 260, 320 260, 400 360" stroke="#D8C6B8" stroke-width="1.5" fill="none" opacity="0.5"/>
+  </svg>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">Про майстра</p>
+      <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:clamp(28px,4vw,38px); margin-top:12px;">Софія</h2>
+      <p style="margin-top:20px;">Працюю з формою брів як з деталлю, що змінює все обличчя. Кожна корекція починається з розмови: яка форма вже є, яка форма личить і що з цим можна зробити акуратно, без різких змін.</p>
+      <p>Використовую пінцет і віск — залежно від густоти та чутливості шкіри — а фарбування та ламінування підбираю під натуральний відтінок і напрямок росту волосків.</p>
+    </div>
+    <div class="about-figure">
+      <div class="stat-row">
+        <div class="stat">150 ₴</div>
+        <div class="stat-label">від · корекція брів</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat">6</div>
+        <div class="stat-label">послуг для брів та обличчя</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Прайс</p>
+      <h2>Послуги та ціни</h2>
+      <p>Ціни фіксовані, без прихованих доплат. Тривалість запису — 30–60 хв залежно від процедури.</p>
+    </div>
+
+    <div class="price-list">
+
+      <div class="price-row">
+        <svg class="price-arch" viewBox="0 0 34 20"><path d="M2 17 C 10 3, 24 3, 32 17"/></svg>
+        <div class="price-name">
+          <div class="name">Корекція брів</div>
+          <div class="note">пінцет, віск</div>
+        </div>
+        <div class="price-amount">150 ₴</div>
+      </div>
+
+      <div class="price-row">
+        <svg class="price-arch" viewBox="0 0 34 20"><path d="M2 15 C 8 4, 26 4, 32 15"/></svg>
+        <div class="price-name">
+          <div class="name">Корекція та фарбування</div>
+          <div class="note">форма + стійкий колір</div>
+        </div>
+        <div class="price-amount">250 ₴</div>
+      </div>
+
+      <div class="price-row">
+        <svg class="price-arch" viewBox="0 0 34 20"><path d="M3 18 C 12 6, 22 6, 31 18"/></svg>
+        <div class="price-name">
+          <div class="name">Ламінування брів</div>
+          <div class="note">об'єм і фіксація форми</div>
+        </div>
+        <div class="price-amount">300 ₴</div>
+      </div>
+
+      <div class="price-row">
+        <svg class="price-arch" viewBox="0 0 34 20"><path d="M2 16 C 9 2, 25 2, 32 16"/></svg>
+        <div class="price-name">
+          <div class="name">Ламінування + фарбування</div>
+          <div class="note">повний догляд за формою і кольором</div>
+        </div>
+        <div class="price-amount">350 ₴</div>
+      </div>
+
+      <div class="price-row">
+        <svg class="price-arch" viewBox="0 0 34 20"><path d="M4 17 C 12 8, 22 8, 30 17"/></svg>
+        <div class="price-name">
+          <div class="name">Депіляція верхньої губи</div>
+        </div>
+        <div class="price-amount">50 ₴</div>
+      </div>
+
+      <div class="price-row">
+        <svg class="price-arch" viewBox="0 0 34 20"><path d="M3 17 C 11 7, 23 7, 31 17"/></svg>
+        <div class="price-name">
+          <div class="name">Носова депіляція</div>
+        </div>
+        <div class="price-amount">100 ₴</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="booking">
+  <div class="wrap">
+    <p class="eyebrow">Запис</p>
+    <h2>Готова до ідеальної форми?</h2>
+    <p>Пишіть в Instagram — підберемо зручний час і форму, яка личитиме саме тобі.</p>
+    <a class="hero-cta" href="https://instagram.com/_sofia._.brows" target="_blank" rel="noopener">
+      Написати @_sofia._.brows →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+    <span>© 2026 _sofia._.brows</span>
+    <a href="https://instagram.com/_sofia._.brows" target="_blank" rel="noopener">Instagram @_sofia._.brows</a>
+  </div>
+</footer>
+
+</body>
+</html>
